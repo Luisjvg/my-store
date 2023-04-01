@@ -126,6 +126,7 @@ web_modules/
 
 # dotenv environment variable files
 .env
+.env.example
 .env.development.local
 .env.test.local
 .env.production.local
@@ -214,5 +215,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+postgres_data
+mysql_data
 
 # End of https://www.toptal.com/developers/gitignore/api/node,windows,linux,macos
