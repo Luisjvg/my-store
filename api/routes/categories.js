@@ -11,21 +11,21 @@ router.get('/', async (req, res) =>{
   res.json(category);
 });
 
-// router.get('/filter', (req, res) =>{
-//   res.send('Yo soy un filter')
-// })
+router.get('/filter', (req, res) =>{
+  res.send('Yo soy un filter')
+})
 
-// router.get('/:id',
-// async (req, res, next) =>{
-//   try{
-//     const { id } = req.params;
-//     const category = await service.findOne(id);
-//     res.json(category);
-//   }catch(err){
-//     next(err);
-//   }
+router.get('/:id',
+async (req, res, next) =>{
+  try{
+    const { id } = req.params;
+    const category = await service.findOne(id);
+    res.json(category);
+  }catch(err){
+    next(err);
+  }
 
-// })
+})
 
 router.post('/',
 async (req, res) =>{
@@ -34,22 +34,22 @@ async (req, res) =>{
   res.status(201).json(newcategory)
 })
 
-// router.patch('/:id',
-// async (req, res, next) =>{
-//   try{
-//     const { id } = req.params;
-//     const body = req.body;
-//     const categoryUpdate = await service.update(id, body)
-//     res.json(categoryUpdate)
-//   }catch(err){
-//     next(err);
-//   }
-// })
-// router.delete('/:id', async (req, res) =>{
-//   const { id } = req.params;
-//   const categoryDelete = await service.delete(id)
-//   res.json(categoryDelete)
-// })
+router.patch('/:id',
+async (req, res, next) =>{
+  try{
+    const { id } = req.params;
+    const body = req.body;
+    const categoryUpdate = await service.update(id, body)
+    res.json(categoryUpdate)
+  }catch(err){
+    next(err);
+  }
+})
+router.delete('/:id', async (req, res) =>{
+  const { id } = req.params;
+  const categoryDelete = await service.delete(id)
+  res.json(categoryDelete)
+})
 
 
 
