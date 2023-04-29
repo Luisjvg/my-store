@@ -1,6 +1,7 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
-const { CURSTOMER_TABLE } = require('./customerModel')
+const { CURSTOMER_TABLE } = require('./customerModel');
+const id = require('faker/lib/locales/id_ID');
 
 const ORDER_TABLE = 'orders';
 
@@ -31,12 +32,14 @@ const OrderSchema = {
   total:{
     type: DataTypes.VIRTUAL,
     get(){
-      if(this.item.length > 0){
-        return this.item.reduce((total, item) => {
-          return total + (item.price * item.OrderProduct.amount)
-        }, 0)
+      if(this.item){
+        if(this.item.length > 0){
+          return this.item.reduce((total, item) => {
+            return total + (item.price * item.OrderProduct.amount)
+          }, 0)
+        }
+        return 0
       }
-      return 0
     }
   }
 }
