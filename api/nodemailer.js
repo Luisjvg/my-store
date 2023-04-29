@@ -11,15 +11,15 @@ async function sendMail() {
     secure: true, // true for 465, false for other ports
     port: 465,
     auth: {
-        user: 'luisjov712@gmail.com',
-        pass: 'wdcscpuliatgmwov'
+        user: "",
+        pass: ""
     }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: 'luisjov712@gmail.com', // sender address
-    to: "lucymayerlinsantoso@gmail.com", // list of receivers
+    from: '', // sender address
+    to: "", // list of receivers
     subject: ":'( :'( ✔", // Subject line
     text: "Que haces? :D", // plain text body
     html: "<b>Hello world?</b>", // html body
